@@ -1,0 +1,285 @@
+15/06/2021
+
+WHILW
+int a;
+a=1;
+while(a<=10){
+printf("%d\n:,a);
+a++;
+if(a==5)
+break;
+}
+exit(1);
+printf("its over");
+
+
+GOTO
+
+int main(){
+int number;
+number=0;
+repeat;
+printf("%d\n",number);
+number++;
+if(number<=5)
+goto repeat;
+
+
+2.
+for(i=1;i<5;i++){
+if(i==2)
+goto apple;
+printf("%d\n",i);
+}
+apple;
+printf("two");
+
+
+OUT[UT
+
+void main(){
+int i=10;
+for(;;)
+{
+printf("%d\n",i);
+}
+
+
+UNINTENTIONALY
+
+
+void main()
+{
+short int x;
+for(x=32765;x<32768;x++){
+printf("%d\t",x);
+}
+
+
+INFINITE IN WHILE
+
+void main()
+int i=10;
+while(1){
+printf("%d\t",i);
+i++;
+}
+
+2.
+void main(){
+int i=10;
+while(i<100){
+printf("%d\t",i);
+}
+}
+
+
+ multiplication table using loops
+
+int i,j;
+for(i=1;i<=10;i++){
+printf("table:%d",i);
+for(j=1;j<=10;j++){
+printf("%d*%d=%d\n",i,j,i*j);
+}
+}
+return 0;
+}
+
+
+PATERN
+1
+21
+321
+4321
+
+int i,j,rows;
+printf("enter rows");
+scanf("%d",&rows);
+for(i=1;i<=rows;i++){
+for(j=i;j>=1;j--){
+printf("%d",j);
+}
+printf("\n");
+}
+
+
+
+PATTERN
+     1
+    21
+   321
+  4321
+
+int n,i,j;
+scanf("%d",&n);
+for(i=1;i<n-1;i++){
+for(j=i;j<=n;j++){
+printf(" ");
+}
+for(j=1;j<=i;j++){
+printf("%d",j);
+}
+printf("\n");
+}
+
+
+POINTERS
+
+int a=12;
+int *ptr;
+ptr=&a;
+printf("address of a direct\n",&a);
+
+
+ADDING NUMBERS USING POINTERS
+
+int a,b,sum;
+a=100;
+b=200;
+int *p1,*p2;
+p1=&a;
+p2=&b;
+sum=*p1+p2;
+printf("%d",sum);
+
+
+16/06/2021
+POINTERS
+
+int x,*p;   /declaration
+x=750;
+p=&x;  /initialization
+
+pritnf("address: %p",p);
+printf("value: %d",*p);
+
+
+2.
+int i=10;
+int *p=&i;
+printf("%d\n",p);
+printf("%d",*p);
+
+
+
+#DEFINE PREPROCESSORS
+
+#include<stdio.h>
+#define a 100
+int main(){
+printf("%d\t",a);
+int c=a+200;
+printf("%d",c);
+}
+return 0
+}
+
+
+DOUBLE POINTER PROG
+
+int*p1,**p2,a;
+a=33;
+p1=&a;
+p2=&p1;
+printf("%p\t",p1);
+printf("%p\t",p2);
+
+printf("%d\t",*p1);
+printf("%d",**p2);
+
+
+POINTERS
+
+
+const int a=100;
+*const int p;
+p=&a;
+printf("%d\t",*p);
+*p=*p+100;
+printf("%d",*p);
+/*p=200;
+/printf("%d",*p);
+
+
+const pointers with matching
+
+
+const int a=100;
+*const int p;
+p=&a;
+printf("%d\t",*p);
+//*p=200;
+//printf("%d",*p);
+
+
+2.
+int a=100;
+int b=200;
+*const int p;
+p=&a;
+printf("%d\t",*p);
+printf("%p\t",p);
+/*p=&b;
+printf("%d\t",*p);
+printf("%p\t",p);*/
+
+
+VOID POINTER/GENERIC POINTER
+
+int a=100;
+int b=300;
+void *p;
+p=&a;
+printf("%d\t",*(int*)p);
+printf("%p\t",p);
+p=&b;
+printf("%d\t",*(int*)p);
+printf("%p\t",p);
+
+
+
+2.
+int a=100;
+int b=300;
+void *p;
+p=&a;
+printf("%d\t",*(int*)p);
+printf("%p\t",p);
+p=&b;
+printf("%d\t",*(int*)p);
+printf("%p\t",p);
+*p=500;
+printf("%d\t",*(int*)p);
+
+
+NULL POINTERS
+
+int a,*p1,*p2,*p3;
+a=300;
+p1=&a;
+*p3=0;
+printf("%p\t",p1);
+printf("%p\t",p2);
+printf("%p\t",p3);
+
+
+
+FUNCTIONS
+
+
+int add(int,int);
+int main(){
+int a,b;
+a=10;
+b=20;
+int res=add(a,b);
+printf("%d",res);
+return 0;
+}
+int add(int n1,int n2){
+int c=n1+n2;
+return c;
+}
+
+

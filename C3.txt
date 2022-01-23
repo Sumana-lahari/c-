@@ -1,0 +1,373 @@
+16/06/2021
+
+WITH RETURN TYPE AND LOCAL VARIABLES
+
+#include<stdio.h>
+int max(int num1,int num2,int num3);
+int main(){
+//local variables
+int a=100;
+int b=200;
+int c=300;
+int ret;
+//calling the function 
+ret=max(a,b,c);
+printf("bigger num is:%d\n",ret);
+return 0;
+}
+//fn with return typr value
+int max(int num1,int num2,int num3){
+    //local variable declartion
+    int result;
+    if(num1>num2&&num1>num3)
+    result=num1;
+    else if(num2>num3)
+    result=num2;
+    else
+    result=num3;
+    return result;
+}
+
+
+WITH REFERENCE ARGUMENTS WITH RETURN TYPE AND WITH ADDRESS
+
+
+#include<stdio.h>
+int add(int*,int*)
+int main(){
+int a,b;
+a=10;
+b=40;
+int res=add(&a,&b);
+printf("%d",res);
+return 0;
+}
+int addition(int*n1,int*n2){
+int c=*n1+*n2;
+return c;
+}
+
+
+
+swapping with reference variables
+
+
+# include<stdio.h>
+int swap(int*,int*);
+int main()
+{
+    int n1,n2;
+    n1=20;
+    n2=30;
+    printf("before swap n1=%d\nn2=%d\n",n1,n2);
+    swap(&n1,&n2);
+    printf("after swap n1=%d\nn2=%d\n",n1,n2);
+    return 0;
+}
+int swap(int *n1,int *n2)
+{
+    int temp;
+    temp=*n1;
+    *n1=*n2;
+    *n2=temp;
+    return ;
+}
+
+
+FACTORIAL USING RECURTTON
+
+
+/*#include <stdio.h>
+int factorial(int);
+int main(){
+ int n;
+ printf("Enter a number: ");
+ scanf("%d", &n);
+ printf("Factorial of number: %d", factorial(n));
+ return 0;
+}
+int factorial(n){
+ if(n==1)
+   return 1;
+ else
+   return(n*factorial(n-1));
+}*/
+
+
+FACTORIAL OF A NUM WITH OUT RECUSSION
+
+#include<stdio.h>
+long int Factori(int);
+int main(){
+        long int fact;
+        int numbr;
+
+        printf("Enter a number: ");
+        scanf("%d",&numbr);
+        fact= Factori(numbr);
+        printf("Factorial of %d is: %ld",numbr,fact);
+        return 0;
+}
+
+long int Factori(int n){
+         int i;
+         long int factorial;
+         factorial =1;
+         for(i=1;i<=n;i++)
+         factorial=factorial*i;
+         return(factorial);
+    }
+
+
+
+fn returning pointer
+(FUNCTION RETURNS ADDRESS OF LOCAL VARIABLE)
+1.gives error solve with 2 program
+#include<stdio.h>
+int *fun(){
+    int A=10;
+    return(&A);
+}
+int main(){
+    //declare a pointer
+    int *p;
+    //function call
+    p=fun();
+    printf("%p\n",p);
+    printf("%d\n",*p);
+    return 0;
+}
+
+2.this solves above program error
+#include<stdio.h>
+int *fun(){
+    //declare a static integer
+   static int A=10;
+    return(&A);
+}
+int main(){
+    //declare a pointer
+    int *p=10;
+    //function call
+   p=fun();
+   //print address
+    printf("%p\n",p);
+   // print value at the above address
+    printf("%d\n",*p);
+    return 0;
+}
+
+(STATIC VARIABLES HAVE A PROPERTY OF PRESERVING THEIR VALUE EVEN
+ AFTER THEY ARE OUT OF THEIR SCOPE .SO TO EXECUTE THE CONCEPT OF 
+RETURNING A POINTER FROM FN IN C YOU MUST DEFINE THE LOCAL VARIABLE AS STATIC VARIABLE.)
+
+
+AVERAGE VARIABLE LENGTH ARGUMENTS
+
+#include<stdio.h>
+#include<stdarg.h>
+int average(int num,...){
+va_list valist;//type of variables... valist is variable
+int sum=0,i;
+va_start(valist,num); //initializing
+for(i=0;i<num;i++)
+sum+=va_arg(valist,int);//access items from list
+va_end(valist);end of args supported function calculation
+return sum/num;
+}
+int main(){
+printf("average of{2,3,4}=%d",average(2,3,4));
+printf("average of{3,5,10,15}=%d",average(3,5,10,15));
+return 0;
+}
+
+
+DANGLING POINTER
+
+# include <stdio.h>
+int *fun(){
+    int y=10;
+    return &y;
+}
+int main(){
+    int *p=fun();
+    printf("%d",*p);
+    
+    return 0;
+}//OUTPUT :segmentation fault
+
+CHANGE THE DANGLING POINTER
+
+
+18/06/2021
+
+AUTO PROGRAM
+
+int main(){
+printvalue();
+printvalue();
+printvalue();
+}
+printvalue();
+{
+int a=325;
+a=a+1;
+printf("%d\n",a);
+}
+/*326
+326
+326*/
+
+2.
+#include <stdio.h>
+int main(){
+auto int a=10;
+for(int i;i<5;i++){
+auto int b=5;
+static int c=20;
+printf("%d\t",a);
+printf("%d\t",b);
+printf("%d",c);
+a+=10;
+b+=10;
+c+=10;
+printf("%d\t",a);
+printf("%d\t",b);
+printf("%d",c);
+printf("\n");
+}
+return 0;
+}
+
+
+
+STATIC PROGRAM
+
+#include <stdio.h>
+
+int main(){
+printvalue();
+printvalue();
+printvalue();
+}
+printvalue()
+{
+static int a=325;
+a=a+1;
+printf("%d\n",a);
+}
+
+/*OUTPUT
+326
+327
+328*/
+
+
+EXTERN PROGRAM
+
+#include <stdio.h>
+
+int main(){
+int a=100;
+extern int b;
+printf("%d\n",a);
+printf("%d\n",b);
+return 0;
+}
+/*A WILL BE 100 AND
+B WULL BE 0...FIRST COMPILER WILL CHECK FOR THE DEFINITION OF B IN ALL THE 
+AREAS OF UR FILE,IT FINDS THEN IT PRINTF ELSE IT RETURN 0 AS DEFAULT.*/
+
+
+ARRARYS
+
+1.
+int main(){
+int a[3]={20,13,24};
+for(int i=0;i<3;i++){
+printf("%d\n",a[i]);
+}
+return 0;
+}
+
+
+2.
+#include<stdio.h>
+int main(){
+int a[3];
+for(int i=0;i<3;i++){
+scanf("%d",&a[i]);
+}
+for(int i=0;i<3;i++){
+printf("%d\n",a[i]);
+}
+return 0;
+}
+
+
+3.AVERAGE
+
+#include<stdio.h>
+int main(){
+    int sum=0,average;
+int a[5]={10,20,30,40,50};
+for(int i=0;i<5;i++){
+    sum=sum+a[i];
+}
+average=sum/5;
+printf("%d",average);
+return 0;
+}
+/*OUTPUT
+30*/
+
+
+4.AVERAGE
+
+#include<stdio.h>
+int main(){
+    int a[10],i,n;
+    int sum=0;
+    float avg;
+    printf("enter size");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        printf("enetr elements\n");
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++){
+        sum=sum+a[i];
+    }
+    avg=sum/n;
+    printf("%f",avg);
+    return 0;
+    
+}
+
+
+5.2-D ARRAY
+
+int main(){
+int a[6][6],i,j,rows,col;
+printf("enter row size");
+scanf("%d",&rows);
+printf("enter col size");
+scanf("%d",&col);
+for(i=0;i<rows;i++){
+for(j=0;j<col;j++){
+printf("enter the elements");
+scanf("%d",&a[i][j]);
+}
+}
+for(i=0;i<rows;i++){
+for(j=0;j<col;j++){
+printf("%d\t",a[i][j]);
+}
+printf("\n");
+}
+return 0;
+}
+
+
+6.
+

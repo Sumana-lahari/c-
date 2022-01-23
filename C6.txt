@@ -1,0 +1,395 @@
+23/06/2021
+
+
+UNIONS
+
+1.
+
+#include<stdio.h>
+#include<string.h>
+union Data{
+    int i;
+    float f;
+    char str[20];
+};
+int main(){
+    union Data data;
+    data.i=10;
+    data.f=220.5;
+    strcpy(data.str,"c programming ");
+    printf("data.i :%d\n",data.i);
+    printf("data.f :%f\n",data.f);
+    printf("data.str :%s\n",data.str);
+return 0;
+}
+
+output:
+data.i :1919950947
+data.f :4756195551848466478234509246464.000000
+data.str :c programming 
+
+2.
+
+Union data {
+int  i;
+float   f;
+char str [20]   ;
+];  
+
+int main (  ){
+
+union Data  data ;
+printf ( "memory  size occupied by data   sizeof  (data) )} ;
+
+
+PASSING STRUC TO FUNCTION CAL BY REF
+
+
+struct student 
+{     
+        int id;
+       char name [20] ;
+       float percentage  ; 
+ };
+ void func ( struct student *record  ); 
+ int  main ( )
+
+{
+     struct student record;
+     record.id-1 ;
+     strcpy ( record.name ,"Raju"  );
+     record .pecentage = 86.5 ;
+     func (&record);
+     return 0;
+}
+void func(struct student  *record )
+{
+     printf(" Id is: % \n",record->id);
+
+
+
+
+
+Why enums are used?
+An enum variable can take only one value.Here is an example to demonstarate it,
+
+#include <stdio.h>
+enum suit {
+         club =0,
+         diamonds =10, 
+         hearts =20,
+         spades =3,
+} card;
+
+iny main()
+{
+      card=club;
+      printf("size of enum variable=%d bytes", sizeof(card));
+      return 0;
+           }
+
+
+2.
+
+#include<stdio.h>
+#include<string.h>
+enum week{sunday,monday,tuesday,wednesday,thursday,friday,saturday};
+int main(){
+    enum week today;
+    today=wednesday;
+    printf("day %d",today+1);
+}
+
+OUTPUT:
+day 4
+
+
+ANNONYMOUS STRING PROGRAM
+
+#include<stdio.h>
+struct mystruct{
+ int i;
+ float f;
+};
+int main(){
+ struct mystruct newStruct;
+ printf("Enter integer value: ");
+ scanf("%d",&newStruct.i);
+ printf("Enter float value: ");
+ scanf("%f",&newStruct.f);
+ printf("%d %.2f",newStruct.i,newStruct.f);
+ return 0;
+}
+
+2 STUDENT DETAILS STORING USING STRUCTURES
+
+#include<stdio.h>
+struct mystruct{
+int id;
+char name[50];
+char branch[10];
+char year[10];
+};
+int main(){
+ int n,i;
+ printf("Enter number of students :");
+ scanf("%d",&n);
+ struct mystruct newStruct[n];
+ for(i=0;i<n;i++){
+   printf("Enter %d student details (id,name,branch,year): \n",i+1);
+   scanf("%d",&newStruct[i].id);
+   scanf("%s",newStruct[i].name);
+   scanf("%s",newStruct[i].branch);
+   scanf("%s",newStruct[i].year);
+ }
+  printf("student details:\n");
+  for(i=0;i<n;i++){
+   printf("%d\t",newStruct[i].id);
+   printf("%s\t",newStruct[i].name);
+   printf("%s\t",newStruct[i].branch);
+   printf("%s\n",newStruct[i].year);
+ }
+ return 0;
+}
+
+
+SEARCHING STUDENT THROUGH ID
+
+#include<stdio.h>
+struct mystruct{
+int id;
+char name[50];
+char branch[10];
+};
+int main(){
+ int n,i;
+ printf("Enter number of candidate :");
+ scanf("%d",&n);
+ struct mystruct newStruct[n];
+ for(i=0;i<n;i++){
+   printf("Enter %d candidate details (id,name,branch): \n",i+1);
+   scanf("%d",&newStruct[i].id);
+   scanf("%s",newStruct[i].name);
+   scanf("%s",newStruct[i].branch);
+ }
+  int id,not = 0;
+  printf("Enter candidate ID:");
+  scanf("%d",&id);
+  for(i=0;i<n;i++){
+   if(id==newStruct[i].id){
+     not = 1;
+     break;
+   } 
+ }
+ if(not) printf("%d\t%s\t%s",newStruct[i].id,newStruct[i].name,newStruct[i].branch);
+ else printf("The candidate is not there");
+ return 0;
+}
+
+
+SORTED BY NAME
+
+#include<stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct mystruct{
+int id;
+char name[50];
+char branch[10];
+};
+int comparator(const void* p, const void* q)
+{
+   return strcmp(((struct mystruct*)p)->name,
+                 ((struct mystruct*)q)->name);
+}
+int main(){
+ int n,i;
+ printf("Enter number of students :");
+ scanf("%d",&n);
+ struct mystruct newStruct[n];
+ 
+ for(i=0;i<n;i++){
+   printf("Enter %d student details (id,name,branch): \n",i+1);
+   scanf("%d",&newStruct[i].id);
+   scanf("%s",newStruct[i].name);
+   scanf("%s",newStruct[i].branch);
+ }
+  printf("Before sorting student details:\n");
+ for(i=0;i<n;i++){
+   printf("%d\t",newStruct[i].id);
+   printf("%s\t",newStruct[i].name);
+   printf("%s\n",newStruct[i].branch);
+ }
+ qsort(newStruct, n, sizeof(struct mystruct), comparator);
+ printf("AFter sorting student details:\n");
+ for(i=0;i<n;i++){
+   printf("%d\t",newStruct[i].id);
+   printf("%s\t",newStruct[i].name);
+   printf("%s\n",newStruct[i].branch);
+ }
+ return 0;
+}
+
+
+24/06/2021
+
+PROGRAM TO WRITE IN A FILE
+
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+
+int main(){
+FILE *fp;
+char ch;
+fp=fopen("c:\\input.doc","w");
+while(ch=getchar()!='0'){
+fputc(ch,fp);    //write data into file
+printf("%c",ch);   //write data on the screen
+}
+fclose(fp);
+return 0;
+}
+
+
+PROGRAM TO READ FROM FILE AND WRITE THE DATA ON SCREEN
+
+#include <stdio.h>
+#include <string.h>
+int main(){
+FILE *fp;
+char ch;
+fp=fopen("inputfile.txt","r");
+while(ch=fgetchar(fp)!='EOF'){
+printf("%c",ch);  //write data on the screen
+}
+return 0;
+}
+
+
+PROGRAM TO READ LAST 50 CHARACTERS FROM A FILE
+
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+FILE *fp;
+char ch;
+int num;
+long lentgh;
+printf("enter the value of n:");
+scanf("%d",&num);
+fp=fopen("F\\Users\\\fari\\\file4.txt","r");
+if(fp==NULL){
+puts("\ncannot open this file");
+exit(1);
+}
+fseek(fp,0,SEEK_END);
+length=ftell(fp);
+fseek(fp,(length-num),SEEK_SET);
+do{
+ch=fgetc(fp);
+putchar(ch);
+}while(ch!=EOF);
+fclose(fp);
+return (0);
+}
+
+THE STRANGIZE OPEATOR
+
+#include<stdio.h>
+#define message_for(a,b)\printf(#a"and" #b ":we love you!\n")
+int main(){
+meassage_for(chennai,hyderabad);
+return 0;
+}
+
+THE TOKEN PASTING(##) OPERATOR
+
+#include<stdio.h>
+#define tokenpaster(n) printf("token"#n"=%d",token##n)
+int main(){
+int token34=40;
+tokenpaster(34);
+return 0;
+}
+
+OUTPUT:
+token34=40
+
+/*it happend so because this results in the following actual output from the preprocessor-
+printf(token34=%d",token34);
+this example shows the concentration of token##n into token34 and here we have used both stringize
+and token-pasting.
+
+//Program to create a file and store information to that file
+
+#include <stdio.h>
+#include <stdlib.h>
+  
+int main()
+{
+   char string[1000];
+   FILE *fileptr;
+   char filename[20]="basic.txt";
+
+   printf("\n Create a file (basic.txt) and input text\n");
+   fileptr=fopen(filename,"write");     
+   if(fileptr==NULL)
+   {
+      printf(" Error while opening file!");
+      exit(1);
+   }
+   printf(" Input a sentence for the file : ");
+   fgets(string, sizeof string, stdin);
+   fprintf(fileptr,"%s",string);
+   fclose(fileptr);
+   printf("\n The file %s created successfully...!!\n\n",filename);
+fileptr  = fopen(filename,"r");
+fseek(fileptr, 0L, SEEK_END);
+    int res = ftell(fileptr);
+printf("%d",res);
+   return 0;
+}
+
+
+//Write a program to append data to the file?
+#include <stdio.h>
+void appendData(char first[],
+                 char second[])
+{
+    FILE *fileptr1, *fileptr2;
+    fileptr1 = fopen(first, "a+");
+    fileptr2 = fopen(second, "a+");
+ 
+    if (!fileptr1 && !fileptr2) {
+        printf("Unable to open/"
+               "detect file(s)\n");
+        return;
+    }
+ 
+    char buf[100];
+ 
+    fprintf(fileptr2, "\n");
+    while (!feof(fileptr1)) {
+        fgets(buf, sizeof(buf), fileptr1);
+        fprintf(fileptr2, "%s", buf);
+    }
+ 
+    rewind(fileptr2);
+    while (!feof(fileptr2)) {
+        fgets(buf, sizeof(buf), fileptr2);
+        printf("%s", buf);
+    }
+}
+ 
+int main()
+{
+    char first[] = "basic.txt",
+         second[] = "append.txt";
+ 
+    appendData(first, second);
+ 
+    return 0;
+}
+
+

@@ -1,0 +1,402 @@
+//Program to print range of primitive data types
+#include <stdio.h>
+#include <limits.h>
+int main()
+{
+  printf("\nThe minimum value of Signed CHAR : = %d\n", SCHAR_MIN);
+  printf("The maximum value of Signed CHAR : = %d\n", SCHAR_MAX);
+  printf("The minimum value of CHAR : = %d\n", CHAR_MIN);
+  printf("The maximum value of CHAR : = %d\n", CHAR_MAX);
+  printf("The maximum value of Unsigned CHAR : = %u\n", UCHAR_MAX);
+ 
+  printf("\nThe minimum value of Signed Short : = %d\n", SHRT_MIN);
+  printf("The maximum value of Signed Short : = %d\n", SHRT_MAX);
+  printf("The maximum value of Unsigned Short : = %u\n", USHRT_MAX);
+ 
+  printf("\nThe minimum value of Signed INT : = %d\n", INT_MIN);
+  printf("The maximum value of Signed INT : = %d\n", INT_MAX);
+  printf("The maximum value of Unsigned INT : = %u\n", UINT_MAX);
+ 
+  printf("\nThe minimum value of Signed LONG : = %ld\n", LONG_MIN);
+  printf("The maximum value of Signed LONG : = %ld\n", LONG_MAX);
+  printf("The maximum value of Unsigned LONG : = %lu\n", ULONG_MAX);
+ 
+}
+
+//To find the limit of data type can use this <limits.h> . The minimum value of unsigned is not printed because it is unsigned
+
+
+ARITHMETIC OPERATORS
+
+#include <stdio.h>
+
+int main() {
+    int a=100;
+    int b=200;
+  printf("%d\n",a==b);
+    printf("%d\n",b);
+    printf("%d\n",a);
+    printf("%d\n",a+=b);
+    printf("%d\n",a+=30);
+    printf("%d\n",a-=80);
+    
+    return 0;
+}
+
+TERNARY OPERATOR
+
+#include <stdio.h>
+int main(){
+int a=200,b=50;
+a>b?printf(a big):printf(a small);
+return 0;
+}
+
+INCREMENT OPERATOR
+
+1.
+#include <stdio.h>
+int main(){
+int a=100;
+a++;
+printf("%d",a);
+return 0;
+}
+
+2.
+#include <stdio.h>
+int main(){
+int y=10;
+int x=11;
+y=x++;
+printf("%d",y);
+printf("%d",x);
+return 0;
+}
+
+MULTIPLICATION TABLE
+
+#include <stdio.h>
+
+int main()
+{
+    int a;
+    printf("enter thye num:\n");
+    scanf("%d",&a);
+    printf(" %d*1= %d\n",a,a*1);
+    printf(" %d*2= %d\n",a,a*2);
+    printf(" %d*3= %d\n",a,a*3);
+    printf(" %d*4= %d\n",a,a*4);
+    printf(" %d*5= %d\n",a,a*5);
+    printf(" %d*6= %d\n",a,a*6);
+    printf(" %d*7= %d\n",a,a*7);
+    printf(" %d*8= %d\n",a,a*8);
+    printf(" %d*9= %d\n",a,a*9);
+    printf(" %d*10= %d\n",a,a*10);
+   
+    return 0;
+}
+
+ARITHMETIC EVALATION
+
+#include <stdio.h>
+int main(){
+int a,b,result;
+printf("enter 2 numbers");
+scanf("%d\n%d",&a,&b);
+result=a+b*a/b-a%b;
+printf("arithmetic  evaluation of %d and %d is =%d\n",a,b,result);
+
+return 0;
+}
+
+LOGICAL EVALUATION
+
+#include <stdio.h>
+int main(){
+int a,b,result;
+printf("enter 2 numbers");
+scanf("%d\n%d",&a,&b);
+result=(a<b||a<=b||a>=b||a>b||a!=b);
+printf("%d",result);
+return 0;
+}
+
+IF ELSE IF
+
+1.
+#include <stdio.h>
+int main(){
+int a,b,c;
+printf("enter 3 numbers");
+scanf("%d\n%d\n%d",&a,&b,&c);
+if(a>b&&a>c)
+printf("a is big");
+else if(b>a&&b>c)
+Printf ("b is big);
+else
+printf ("c is big");
+return 0;
+}
+
+2.
+#include <stdio.h>
+int main(){
+int a;
+printf("enter a number to find odd or even");
+if(a%2==0)
+printf("even");
+else 
+printf("odd");
+return 0;
+}
+
+POSITIVE NEGATIVE
+1.
+#include <stdio.h>
+int main(){
+int a;
+printf("enter a number");
+(a>0)?printf("positive"):printf("negative");
+return 0;
+}
+
+EVEN ODD
+1.
+#include <stdio.h>
+int main(){
+int a;
+printf("enter a number");
+Scanf("%d",&a);
+if(a>0)
+(a%2==0)?printf("even"):printf("odd);
+else 
+printf("zero");
+return 0;
+}
+
+SWITCH CASE
+
+1.
+#include <stdio.h>
+int main(){
+int a=3;
+switch(a)
+{
+case1:
+printf("one");
+break;
+case2:
+printf("two");
+break;
+default:
+printf("not 1 or 2");
+return 0;
+}
+
+2.
+#include <stdio.h> 
+int main(){
+ int option = 1;
+ switch(option){
+   case 1: printf("Case 1\n");
+   case 2: printf("Case 2\n");
+   case 3: printf("Case 3\n");
+   default: printf("default case\n");
+ }
+}
+
+3.
+#include <stdio.h>
+int main(){
+ char character;
+ printf("Enter character: ");
+ scanf("%c", &character);
+ switch(character){
+   case 'A':
+   case 'a': printf("\n%c is vowel", character);
+           break;
+   case 'E':
+   case 'e': printf("\n%c is vowel", character);
+           break;
+   case 'I':
+   case 'i': printf("\n%c is vowel", character);
+           break;
+   case 'O':
+   case 'o': printf("\n%c is vowel", character);
+           break;
+   case 'U':
+   case 'u': printf("\n%c is vowel", character);
+           break;
+   default: printf("\n%c is consonants", character);
+ }
+}
+
+
+IF.....CONTINUE(to print odd numbers)
+
+
+#include<stdio.h>
+int main()
+{
+int i;
+for(i=0;i<20;i++)
+{
+if(i%2==0)
+{
+continue;
+}
+printf("%d\t",i);
+}
+return 0;
+}
+
+
+SWITCH SPECIAL
+
+#include<stdio.h>
+int main();
+{
+char ch;
+scanf("%c",&ch);
+switch(200){
+case 'a':
+printf("a");
+break;
+case 200:
+printf("200");
+break;
+case 100:
+printf("100");
+break;
+default:
+printf("default");
+break;
+}
+return 0;
+}
+
+
+GRADES(IF ELSE IF)
+
+#include<stdio.h>
+int main()
+{
+int marks,sub1,sub2,sub3,sub4,sub5;
+printf("enetr marks for 5 subs");
+scanf("%d\n%d\n%d\n%d\n%d",&sub1,&sub2,&sub3,&sub4,&sub5);
+marks=(sub1+sub2+sub3+sub4+sub5)/5;
+if(85<marks>=100)
+printf("grade a");
+else if(65<marks>=85)
+printf("grade b");
+else if(35<marks>=65)
+printf("grade c");
+else
+printf("no grade");
+return 0;
+}
+
+
+GRADE (SWITCH CASE)
+
+int marks,sub1,sub2,sub3,sub4,sub5,a;
+if(<85marks>=100)
+{
+a=1;
+}
+switch(a)
+{
+case 1:
+printf("grade 1");
+break;
+}
+else if(65<marks>=85)
+{
+a=2;
+}
+switch(a){
+case 2:
+printf("grade b");
+}
+else if(35<marks>=65)
+{
+a=3;
+}
+switch(a){
+case 3:
+printf("grade c");
+}
+else
+{
+printf("no grade");
+}
+return 0;
+}
+
+
+WHILE
+
+
+#include<stdio.h>
+int main(){
+int a;
+a=1;
+while(a<=10){
+printf("%d\n",a);
+a++;
+}
+
+
+DO WHILE
+
+#include<stdio.h>
+int main(){
+int num=1;
+do{
+printf("%d\n",num);
+num++;
+}
+while (num<=5);
+return 0;
+}
+
+
+FOR LOOP
+
+#include<stdio.h>
+int main(){
+int i;
+for(i=1;i<10;i++){
+printf("%d\t",i);
+}
+return 0;
+}
+
+
+GOTO
+
+int main(){
+int number;
+number 0;
+repeat:
+printf("%d\n",number);
+number++;
+if(number<=5)
+goto repeat;
+}
+
+2.
+
+for(i=1;i<5;i++)
+{
+ifi==2)
+goto apple;
+printf("%d\n",i);
+}
+apple:
+printf("two");
+
+
+
+
